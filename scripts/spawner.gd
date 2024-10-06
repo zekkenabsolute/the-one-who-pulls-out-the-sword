@@ -1,8 +1,17 @@
 extends Node2D
 
 func _on_timer_timeout() -> void:
-	var x = randf_range(-600,600)
-	var y = randf_range(-600,600)
-	var instance = preload("res://scenes/arrow.tscn").instantiate()
-	instance.position = Vector2 (x,y)
+	var radius = 300
+	var instance
+	if (randf()>0.5):
+		instance = preload("res://scenes/arrow.tscn").instantiate()
+	else: 
+		instance = preload("res://scenes/bullet.tscn").instantiate()
+	var angle = randf() * TAU
+	var x = cos(angle) * radius
+	var y = sin(angle) * radius
+	var ins_position = Vector2(x, y)
+	instance.position = ins_position
+	instance.rotation = angle
 	add_child(instance)
+	

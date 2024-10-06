@@ -1,9 +1,6 @@
 extends Node2D
 
 var hit_count = 0
-func _ready() -> void:
-	%SwordRB.contact_monitor =true
-	%SwordRB.max_contacts_reported =20
 
 func _process(delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
@@ -18,25 +15,13 @@ func _process(delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		%Shield.hide()
 		%Sword.show()
+		$Shield/CharacterBody2D/CollisionShape2D.disabled=true
+		$Sword/CharacterBody2D/CollisionShape2D.disabled=false
 	else:
 		%Sword.hide()
 		%Shield.show()
-
+		$Shield/CharacterBody2D/CollisionShape2D.disabled=false
+		$Sword/CharacterBody2D/CollisionShape2D.disabled=true
 func _on_hit() -> void:
 	hit_count +=1
-	print("times hit: ",hit_count)
-
-func _on_collision_sword(body):
-	print ("Pleaseeeee")
-	if body.has_method("_on_collision_destroy"): 
-		body._on_collision_destroy()  
-		print("Collision Sword")
-	else:
-		push_error("Collided body doesn't have the function 'some_function'")
-func _on_collision_shield(body):
-	if body.has_method("_on_collision_destroy"): 
-		body._on_collision_destroy()  
-	else:
-		push_error("Collided body doesn't have the function 'some_function'")
-func _on_collision_player(body):
-	_on_hit()
+	%"times hit".bbcode_text = "hit count: %d" % hit_count

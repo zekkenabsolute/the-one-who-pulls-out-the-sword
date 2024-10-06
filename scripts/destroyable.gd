@@ -8,5 +8,7 @@ func _process(delta):
 	$"../..".global_position += direction * speed * delta
 
 func _on_collision(body):
-	print("omg send help")
+	if body.is_in_group("Player"):
+		var node = body.get_node("%Node2D")
+		node._on_hit()
 	$"../..".queue_free()
