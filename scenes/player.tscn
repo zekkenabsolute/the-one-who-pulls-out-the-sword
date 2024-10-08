@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://sgih0a8ceqck"]
 
-[ext_resource type="Texture2D" uid="uid://ktoc4y04k5ng" path="res://sprites/heart.png" id="1_28uo0"]
-[ext_resource type="Script" path="res://scripts/gameplay.gd" id="2_tyu71"]
-[ext_resource type="Texture2D" uid="uid://xc5h0xglx2wc" path="res://sprites/shield.png" id="3_4j7yo"]
-[ext_resource type="Texture2D" uid="uid://cm6a8a46afdx4" path="res://sprites/sword.png" id="4_rh5bu"]
+[ext_resource type="Texture2D" uid="uid://ktoc4y04k5ng" path="res://Sprites/heart.png" id="1_28uo0"]
+[ext_resource type="Script" path="res://Scripts/gameplay.gd" id="2_tyu71"]
+[ext_resource type="Texture2D" uid="uid://xc5h0xglx2wc" path="res://Sprites/shield.png" id="3_4j7yo"]
+[ext_resource type="Texture2D" uid="uid://cm6a8a46afdx4" path="res://Sprites/sword.png" id="4_rh5bu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fwa2l"]
 radius = 23.0868

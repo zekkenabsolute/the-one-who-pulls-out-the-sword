@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnksjtwkw0s64"]
 
-[ext_resource type="Texture2D" uid="uid://brdomh4iaihg1" path="res://sprites/arrow.png" id="1_v73q6"]
-[ext_resource type="Script" path="res://scripts/destroyable.gd" id="2_7c72s"]
+[ext_resource type="Texture2D" uid="uid://brdomh4iaihg1" path="res://Sprites/arrow.png" id="1_v73q6"]
+[ext_resource type="Script" path="res://Scripts/destroyable.gd" id="2_7c72s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5ppr"]
 size = Vector2(63, 20)

@@ -4,9 +4,9 @@ func _on_timer_timeout() -> void:
 	var radius = 300
 	var instance
 	if (randf()>0.5):
-		instance = preload("res://scenes/arrow.tscn").instantiate()
+		instance = preload("res://Scenes/arrow.tscn").instantiate()
 	else: 
-		instance = preload("res://scenes/bullet.tscn").instantiate()
+		instance = preload("res://Scenes/bullet.tscn").instantiate()
 	var angle = randf() * TAU
 	var x = cos(angle) * radius
 	var y = sin(angle) * radius

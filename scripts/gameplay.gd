@@ -2,7 +2,7 @@ extends Node2D
 
 var hit_count = 0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var object_pos = global_position
 	var direction = mouse_pos - object_pos
