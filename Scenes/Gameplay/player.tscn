@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://sgih0a8ceqck"]
+
+[ext_resource type="Texture2D" uid="uid://ktoc4y04k5ng" path="res://Sprites/heart.png" id="1_28uo0"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/gameplay.gd" id="2_tyu71"]
+[ext_resource type="Texture2D" uid="uid://xc5h0xglx2wc" path="res://Sprites/shield.png" id="3_4j7yo"]
+[ext_resource type="Texture2D" uid="uid://cm6a8a46afdx4" path="res://Sprites/sword.png" id="4_rh5bu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fwa2l"]
+radius = 23.0868
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4kel"]
+size = Vector2(20, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_for4s"]
+size = Vector2(43, 20)
+
+[node name="Player" type="Node2D"]
+scale = Vector2(2.00195, 2.00195)
+
+[node name="Heart" type="Sprite2D" parent="."]
+texture = ExtResource("1_28uo0")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Heart" groups=["Player"]]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heart/CharacterBody2D"]
+shape = SubResource("CircleShape2D_fwa2l")
+
+[node name="Node2D" type="Node2D" parent="Heart"]
+unique_name_in_owner = true
+script = ExtResource("2_tyu71")
+
+[node name="Shield" type="Sprite2D" parent="Heart/Node2D"]
+unique_name_in_owner = true
+position = Vector2(32.895, 1)
+texture = ExtResource("3_4j7yo")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Heart/Node2D/Shield"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heart/Node2D/Shield/CharacterBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_f4kel")
+
+[node name="Sword" type="Sprite2D" parent="Heart/Node2D"]
+unique_name_in_owner = true
+position = Vector2(53.565, 0)
+texture = ExtResource("4_rh5bu")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Heart/Node2D/Sword"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Heart/Node2D/Sword/CharacterBody2D"]
+position = Vector2(9.935, 0)
+shape = SubResource("RectangleShape2D_for4s")
+
+[node name="times hit" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = -184.32
+offset_top = -150.853
+offset_right = -70.3203
+offset_bottom = -110.853
+bbcode_enabled = true
