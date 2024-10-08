@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp6jq8a0weq86"]
+
+[ext_resource type="Texture2D" uid="uid://x6mnl0rk6ror" path="res://Sprites/Succubi.png" id="1_bqkib"]
+[ext_resource type="Texture2D" uid="uid://dtmearr6hdxl5" path="res://Sprites/textbox.png" id="2_qvdlu"]
+[ext_resource type="PackedScene" uid="uid://c8tstgqatqed7" path="res://Scenes/VN/text_box.tscn" id="3_yq5mb"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Succubi" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_bqkib")
+
+[node name="TextboxImage" type="Sprite2D" parent="."]
+position = Vector2(-0.999999, 296)
+scale = Vector2(2.168, 2.168)
+texture = ExtResource("2_qvdlu")
+
+[node name="TextBox" parent="." instance=ExtResource("3_yq5mb")]
