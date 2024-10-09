@@ -1,26 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp6jq8a0weq86"]
+[gd_scene load_steps=8 format=3 uid="uid://dp6jq8a0weq86"]
 
-[ext_resource type="Texture2D" uid="uid://x6mnl0rk6ror" path="res://Sprites/Succubi.png" id="1_bqkib"]
+[ext_resource type="Texture2D" uid="uid://dvlwumcwk4u7" path="res://Sprites/Arisuu.png" id="1_hsr6p"]
 [ext_resource type="Texture2D" uid="uid://dtmearr6hdxl5" path="res://Sprites/textbox.png" id="2_qvdlu"]
 [ext_resource type="PackedScene" uid="uid://c8tstgqatqed7" path="res://Scenes/VN/text_box.tscn" id="3_yq5mb"]
+[ext_resource type="Texture2D" uid="uid://d0riqafdg16ja" path="res://Sprites/House Of Imagi Studio.png" id="4_t4srd"]
 [ext_resource type="Script" path="res://Scripts/VN/the_parser.gd" id="4_tc182"]
 [ext_resource type="Script" path="res://Scripts/VN/the_handler.gd" id="5_ienai"]
+[ext_resource type="Script" path="res://Scripts/VN/camera_controller.gd" id="7_ojfmc"]
 
 [node name="Game" type="Node2D"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Succubi" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_bqkib")
-
-[node name="TextboxImage" type="Sprite2D" parent="."]
-position = Vector2(-0.999999, 296)
-scale = Vector2(2.168, 2.168)
-texture = ExtResource("2_qvdlu")
-
-[node name="TextBox" parent="." instance=ExtResource("3_yq5mb")]
-unique_name_in_owner = true
 
 [node name="TheParser" type="Node" parent="."]
 unique_name_in_owner = true
@@ -29,3 +17,35 @@ script = ExtResource("4_tc182")
 [node name="TheHandler" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_ienai")
+
+[node name="Canvas" type="Node2D" parent="."]
+
+[node name="ParallaxBg" type="Node2D" parent="Canvas"]
+unique_name_in_owner = true
+metadata/Parallax = 0.5
+
+[node name="HouseOfImagiStudio" type="Sprite2D" parent="Canvas/ParallaxBg"]
+scale = Vector2(1.25208, 1.25208)
+texture = ExtResource("4_t4srd")
+
+[node name="ParallaxChar" type="Node2D" parent="Canvas"]
+unique_name_in_owner = true
+metadata/Parallax = 0.0
+
+[node name="Arisuu" type="Sprite2D" parent="Canvas/ParallaxChar"]
+position = Vector2(0, 90)
+scale = Vector2(0.765, 0.765)
+texture = ExtResource("1_hsr6p")
+
+[node name="CameraController" type="Node2D" parent="Canvas"]
+script = ExtResource("7_ojfmc")
+
+[node name="Camera2D" type="Camera2D" parent="Canvas/CameraController"]
+
+[node name="TextboxImage" type="Sprite2D" parent="Canvas/CameraController"]
+position = Vector2(0, 296)
+scale = Vector2(2.168, 2.168)
+texture = ExtResource("2_qvdlu")
+
+[node name="TextBox" parent="Canvas/CameraController" instance=ExtResource("3_yq5mb")]
+unique_name_in_owner = true

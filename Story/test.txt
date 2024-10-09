@@ -3,3 +3,4 @@ Succubo,Sos malardo mal broder
 Succubo,voy a concretar relaciones no consensuadas con vos
 continue, oh my god
 Narrador,Te cojen
+comando

@@ -1,6 +1,6 @@
-extends Node
+extends Node2D
 
-var finalText ="Oh my god..."
+var finalText ="donuts!"
 var currentText = ""
 var current_line = 1
 var is_talking

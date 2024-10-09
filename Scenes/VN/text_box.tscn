@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/VN/text_box.gd" id="1_pcvk5"]
 
-[node name="TextBox" type="Node"]
+[node name="TextBox" type="Node2D"]
 script = ExtResource("1_pcvk5")
 
 [node name="MainText" type="RichTextLabel" parent="."]
@@ -36,7 +36,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/normal_font_size = 55
 bbcode_enabled = true
-text = "Namaewo"
+text = "Arisu"
 scroll_active = false
 
 [connection signal="timeout" from="MainText/CharTime" to="." method="_on_timer_bang"]
