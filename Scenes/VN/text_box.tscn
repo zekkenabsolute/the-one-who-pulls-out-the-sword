@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8tstgqatqed7"]
+[gd_scene load_steps=2 format=3 uid="uid://c8tstgqatqed7"]
 
 [ext_resource type="Script" path="res://Scripts/VN/text_box.gd" id="1_pcvk5"]
-[ext_resource type="Script" path="res://Scripts/VN/the_parser.gd" id="2_4h8l8"]
 
 [node name="TextBox" type="Node"]
 script = ExtResource("1_pcvk5")
 
 [node name="MainText" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
 offset_left = -887.0
 offset_top = 199.0
 offset_right = 892.0
@@ -18,26 +18,13 @@ bbcode_enabled = true
 scroll_active = false
 
 [node name="CharTime" type="Timer" parent="MainText"]
+unique_name_in_owner = true
 wait_time = 0.111
 autostart = true
-
-[node name="TheParser" type="Node" parent="MainText"]
-unique_name_in_owner = true
-script = ExtResource("2_4h8l8")
 
 [node name="Cooldown" type="Timer" parent="MainText"]
 unique_name_in_owner = true
 wait_time = 0.1
-
-[node name="HSlider" type="HSlider" parent="."]
-offset_left = 344.0
-offset_top = -141.0
-offset_right = 715.0
-offset_bottom = -28.0
-min_value = 0.001
-max_value = 0.2
-step = 0.001
-value = 0.001
 
 [node name="CharaName" type="RichTextLabel" parent="."]
 unique_name_in_owner = true

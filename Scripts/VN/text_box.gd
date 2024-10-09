@@ -10,37 +10,32 @@ func _on_cooldown_bang():
 	is_in_cooldown = false
 
 func _on_timer_bang():
-	$MainText/CharTime.wait_time = 0.05
+	%CharTime.wait_time = 0.05
 
 	if len(finalText) >0:
 		currentText += finalText[0]
 		finalText = finalText.substr(1,-1)
-		$MainText.bbcode_text = currentText
+		%MainText.bbcode_text = currentText
 	elif len(finalText)==0:
-			$MainText/CharTime.stop()
+			%CharTime.stop()
 			is_talking = false
 
-func _process(_delta):
-	if (Input.is_action_just_pressed("forward")&&!is_talking&&!is_in_cooldown):
-		_next_text()
-	elif (Input.is_action_just_pressed("forward")&&is_talking&&!is_in_cooldown):
-		_skip_text()
 
 func _skip_text():
 	is_in_cooldown =true
 	%Cooldown.start()
 	is_talking =false
 	currentText +=finalText
-	$MainText.bbcode_text = currentText
-	$MainText/CharTime.stop()
+	%MainText.bbcode_text = currentText
+	%CharTime.stop()
 
-func _next_text():
-	currentText =""
+func _next_text(csv:PackedStringArray):
+	if (csv[0]!="continue"):
+		currentText =""
+		%CharaName.bbcode_text = csv[0]
 	is_in_cooldown =true
 	%Cooldown.start()
-	var csv = %TheParser._csv_read(current_line)
-	%CharaName.bbcode_text = csv[0]
 	finalText=csv[1]
 	is_talking = true
-	$MainText/CharTime.start()
-	current_line +=1
+	%CharTime.start()
+	

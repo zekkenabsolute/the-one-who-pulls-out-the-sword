@@ -1,9 +1,9 @@
 extends Node
+
 var dialogue_data = []
+
 func _parse_csv_file(file_path: String):
-	print ("Is there any data?")
 	if FileAccess.file_exists(file_path):
-		print ("I think...")
 		var file = FileAccess.open(file_path, FileAccess.READ)
 		var content = file.get_as_text()
 		file.close()
@@ -12,10 +12,9 @@ func _parse_csv_file(file_path: String):
 			if line == "":
 				continue
 			var fields = line.split(",")
-			print (str("line is = ",line, " fields is = ",fields))
 			dialogue_data.append(fields)
 	else:
-		print ("no...")
+		push_error("My bro there is no file in the parser. check the spelling")
 
 func _csv_read(x:int):
 	if dialogue_data.size() > x:
@@ -25,12 +24,4 @@ func _csv_read(x:int):
 		return PackedStringArray(["debug","Script ended but didnt call next scene"])
 
 func _ready():
-	print("oh hi!")
 	_parse_csv_file("res://Story/test.txt")
-
-	print (dialogue_data.size())
-	
-	#this is for debug purposes
-	
-	#for row in dialogue_data:
-	#	print(row)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp6jq8a0weq86"]
+[gd_scene load_steps=6 format=3 uid="uid://dp6jq8a0weq86"]
 
 [ext_resource type="Texture2D" uid="uid://x6mnl0rk6ror" path="res://Sprites/Succubi.png" id="1_bqkib"]
 [ext_resource type="Texture2D" uid="uid://dtmearr6hdxl5" path="res://Sprites/textbox.png" id="2_qvdlu"]
 [ext_resource type="PackedScene" uid="uid://c8tstgqatqed7" path="res://Scenes/VN/text_box.tscn" id="3_yq5mb"]
+[ext_resource type="Script" path="res://Scripts/VN/the_parser.gd" id="4_tc182"]
+[ext_resource type="Script" path="res://Scripts/VN/the_handler.gd" id="5_ienai"]
 
 [node name="Game" type="Node2D"]
 
@@ -18,3 +20,12 @@ scale = Vector2(2.168, 2.168)
 texture = ExtResource("2_qvdlu")
 
 [node name="TextBox" parent="." instance=ExtResource("3_yq5mb")]
+unique_name_in_owner = true
+
+[node name="TheParser" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_tc182")
+
+[node name="TheHandler" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_ienai")
