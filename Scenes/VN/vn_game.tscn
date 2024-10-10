@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dp6jq8a0weq86"]
+[gd_scene load_steps=11 format=3 uid="uid://dp6jq8a0weq86"]
 
 [ext_resource type="Texture2D" uid="uid://dvlwumcwk4u7" path="res://Sprites/Arisuu.png" id="1_hsr6p"]
 [ext_resource type="Texture2D" uid="uid://dtmearr6hdxl5" path="res://Sprites/textbox.png" id="2_qvdlu"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bwwscwodjiex2" path="res://Scenes/VN/character_base.tscn" id="4_yvmuh"]
 [ext_resource type="Script" path="res://Scripts/VN/the_handler.gd" id="5_ienai"]
 [ext_resource type="Script" path="res://Scripts/VN/camera_controller.gd" id="7_ojfmc"]
+[ext_resource type="Texture2D" uid="uid://ml006a1yak3h" path="res://Sprites/bullet.png" id="9_btfma"]
+[ext_resource type="Script" path="res://Scripts/VN/bullet.gd" id="10_37fme"]
 
 [node name="Game" type="Node2D"]
 
@@ -58,3 +60,8 @@ texture = ExtResource("2_qvdlu")
 
 [node name="TextBox" parent="Canvas/CameraController" instance=ExtResource("3_yq5mb")]
 unique_name_in_owner = true
+
+[node name="Bullet" type="Sprite2D" parent="."]
+position = Vector2(-675, -122)
+texture = ExtResource("9_btfma")
+script = ExtResource("10_37fme")

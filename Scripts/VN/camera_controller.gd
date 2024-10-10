@@ -15,14 +15,24 @@ func _ready() -> void:
 
 func _process(delta) -> void:
 	if has_target:
-		var direction_to_target = (target_position - position).normalized()
-		var distance_to_target = position.distance_to(target_position)
-		var final_movement =direction_to_target * distance_to_target * movement_speed *delta
-		position += final_movement
-		_parallax_handler(final_movement)
-		if position == target_position:
-			has_target =false
-			target_position =$"../ParallaxChar/CharacterBase".body
+		_move_to_target(delta)
+
+func _move_to_target(delta):
+	var direction_to_target = (target_position - position).normalized()
+	var distance_to_target = position.distance_to(target_position)
+	var final_movement =direction_to_target * distance_to_target * movement_speed *delta
+	position += final_movement
+	_parallax_handler(final_movement)
+	if position == target_position:
+		has_target =false
+
+func _skip_camera_movement():
+	var direction_to_target = (target_position - position).normalized()
+	var distance_to_target = position.distance_to(target_position)
+	var final_movement =direction_to_target * distance_to_target
+	position = final_movement
+	_parallax_handler(final_movement)
+	has_target = false
 
 func _set_target_position(new_position:Vector2):
 	target_position = new_position
