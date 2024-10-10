@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwwscwodjiex2"]
+
+[ext_resource type="Script" path="res://Scripts/VN/character_base.gd" id="1_2f1hg"]
+[ext_resource type="Texture2D" uid="uid://dvlwumcwk4u7" path="res://Sprites/Arisuu.png" id="2_o32qj"]
+
+[node name="CharacterBase" type="Node2D"]
+script = ExtResource("1_2f1hg")
+
+[node name="Arisuu" type="Sprite2D" parent="."]
+position = Vector2(0, 90)
+scale = Vector2(0.765, 0.765)
+texture = ExtResource("2_o32qj")
+
+[node name="Head" type="Node2D" parent="."]
+position = Vector2(-291, -38)
+
+[node name="Breast" type="Node2D" parent="."]
+position = Vector2(0, -86)
+
+[node name="Body" type="Node2D" parent="."]
+position = Vector2(0, 14)
+
+[node name="Crotch" type="Node2D" parent="."]
+position = Vector2(0, 114)
